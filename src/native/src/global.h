@@ -1,0 +1,1 @@
+#define LLNET_EXPORT _declspec(dllexport)

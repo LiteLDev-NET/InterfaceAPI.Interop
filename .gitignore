@@ -1,0 +1,11 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.vs
+/src/managed/LiteLoader.InterfaceAPI.Interop/.vs/LiteLoader.InterfaceAPI.Interop
+/src/managed/LiteLoader.InterfaceAPI.Interop/LiteLoader.InterfaceAPI.Interop/bin/Debug/net7.0
+/src/managed/LiteLoader.InterfaceAPI.Interop/LiteLoader.InterfaceAPI.Interop/obj
+/src/native/.vs
+/src/native/out/build/Release
+/src/managed/LiteLoader.InterfaceAPI.Interop/.vs/ProjectEvaluation

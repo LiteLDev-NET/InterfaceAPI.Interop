@@ -1,0 +1,6 @@
+[submodule "liteloader"]
+	path = liteloader
+	url = https://github.com/LiteLDev/LiteLoader.git
+[submodule "src/native/SDKcpp"]
+	path = src/native/sdk
+	url = https://github.com/LiteLDev/SDK-cpp.git
