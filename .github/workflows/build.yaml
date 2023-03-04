@@ -43,13 +43,13 @@ jobs:
     - name: Configure CMake (MSVC)
       run: |
         cd ${{github.workspace}}/src/native
-        cmake -B ./build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        cmake -B ./out/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
       shell: cmd
       
     - name: Build native
       run: |
         cd ${{github.workspace}}/src/native
-        cmake --build ./build --config ${{env.BUILD_TYPE}}
+        cmake --build ./out/build --config ${{env.BUILD_TYPE}}
       shell: cmd
       
     - name: Setup .NET
