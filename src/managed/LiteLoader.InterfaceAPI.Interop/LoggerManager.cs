@@ -72,8 +72,7 @@ public static partial class LoggerManager
     [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     [UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
-    [return: MarshalAs(UnmanagedType.U1)]
-    public static unsafe partial bool WriteLine(ulong id, OutputStreamType type, char* str);
+    public static unsafe partial void WriteLine(ulong id, OutputStreamType type, char* str);
 #elif (LINUX)
 
 #endif

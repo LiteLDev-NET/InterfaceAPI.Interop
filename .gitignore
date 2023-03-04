@@ -9,3 +9,6 @@
 /src/native/.vs
 /src/native/out/build/Release
 /src/managed/LiteLoader.InterfaceAPI.Interop/.vs/ProjectEvaluation
+/src/managed/.vs
+/src/managed/LiteLoader.InterfaceAPI.Interop/bin
+/src/managed/LiteLoader.InterfaceAPI.Interop/obj
