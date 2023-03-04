@@ -1,0 +1,79 @@
+name: CMake
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    name: Build
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3.2.0
+      with:
+        fetch-depth: 1
+        submodules: 'true'
+      
+    - name: Download BDS
+      working-directory: ${{ env.GITHUB_WORKSPACE }}
+      run: |
+        mkdir src/native/sdk/tools/server
+        ServerLink=$(cat 'scripts/LINK.txt')
+        curl -L -o src/native/sdk/tools/server/server.zip "$ServerLink"
+        unzip src/native/sdk/tools/server/server.zip -d src/native/sdk/tools/server/ > /dev/null
+      shell: bash
+      
+    - name: Build libraries
+      working-directory: ${{ env.GITHUB_WORKSPACE }}
+      run: |
+        cd src/native/sdk/tools
+        LibraryBuilder.exe server
+        mkdir ..\lib
+        move bedrock_server_api.lib ..\lib
+        move bedrock_server_var.lib ..\lib
+      shell: cmd
+      
+    - name: Configure CMake (MSVC)
+      run: |
+        cd ${{github.workspace}}/src/native
+        cmake -B ./build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      shell: cmd
+      
+    - name: Build native
+      run: |
+        cd ${{github.workspace}}/src/native
+        cmake --build ./build --config ${{env.BUILD_TYPE}}
+      shell: cmd
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+        
+    - name: Restore dependencies
+      run: |
+        cd src/managed
+        dotnet restore
+        
+    - name: Build managed
+      run: |
+        cd src/managed
+        dotnet build --no-restore
+        
+    - name: Update Modules
+      working-directory: ${{ env.GITHUB_WORKSPACE }}
+      env:
+        REPO_KEY: ${{secrets.PUSH_TOKEN}}
+        USERNAME: github-actions[bot]
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        cd scripts
+        ./UploadModules.cmd action
