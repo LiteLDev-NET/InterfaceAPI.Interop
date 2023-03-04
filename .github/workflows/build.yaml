@@ -65,7 +65,7 @@ jobs:
     - name: Build managed
       run: |
         cd src/managed
-        dotnet build --no-restore
+        dotnet build --no-restore --configuration Release
         
     - name: Update Modules
       working-directory: ${{ env.GITHUB_WORKSPACE }}
