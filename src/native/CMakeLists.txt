@@ -14,6 +14,10 @@ file(GLOB_RECURSE SRC_FILES_DIR
     ${PROJECT_SOURCE_DIR}/src/export/*.cpp
     ${PROJECT_SOURCE_DIR}/src/export/*.h
     ${PROJECT_SOURCE_DIR}/src/export/*.hpp
+    ${PROJECT_SOURCE_DIR}/src/extra/*.c
+    ${PROJECT_SOURCE_DIR}/src/extra/*.cpp
+    ${PROJECT_SOURCE_DIR}/src/extra/*.h
+    ${PROJECT_SOURCE_DIR}/src/extra/*.hpp
 )
 
 include_directories(

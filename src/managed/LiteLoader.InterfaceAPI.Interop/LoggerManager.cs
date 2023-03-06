@@ -24,7 +24,7 @@ public static class LoggerManager
     [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     [return: MarshalAs(UnmanagedType.U1)]
-    public static unsafe extern bool CreateLogger(ref ulong id, char* title);
+    public static unsafe extern bool CreateLogger(ref ulong id, [MarshalAs(UnmanagedType.LPWStr)] string title);
 #elif (LINUX)
 
 #endif
@@ -49,7 +49,7 @@ public static class LoggerManager
     [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     [UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
-    public static unsafe extern void SetTitle(ulong id, char* title);
+    public static unsafe extern void SetTitle(ulong id, [MarshalAs(UnmanagedType.LPWStr)] string title);
 #elif (LINUX)
 
 #endif
@@ -74,7 +74,7 @@ public static class LoggerManager
     [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     [UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
-    public static unsafe extern void WriteLine(ulong id, OutputStreamType type, char* str);
+    public static unsafe extern void WriteLine(ulong id, OutputStreamType type, [MarshalAs(UnmanagedType.LPWStr)] string str);
 #elif (LINUX)
 
 #endif
