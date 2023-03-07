@@ -21,7 +21,6 @@ public static class LoggerManager
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
             CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "LoggerManager_CreateLogger", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     [return: MarshalAs(UnmanagedType.U1)]
     public static unsafe extern bool CreateLogger(ref ulong id, [MarshalAs(UnmanagedType.LPWStr)] string title);
@@ -34,9 +33,7 @@ public static class LoggerManager
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
             CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "LoggerManager_DeleteLogger", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
-    [UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
     public static unsafe extern void DeleteLogger(ulong id);
 #elif (LINUX)
 
@@ -46,9 +43,7 @@ public static class LoggerManager
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
             CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "LoggerManager_SetTitle", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
-    [UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
     public static unsafe extern void SetTitle(ulong id, [MarshalAs(UnmanagedType.LPWStr)] string title);
 #elif (LINUX)
 
@@ -58,9 +53,7 @@ public static class LoggerManager
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
             CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "LoggerManager_GetTitle", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
-    [UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
     [return: MarshalAs(UnmanagedType.U1)]
     public static unsafe extern bool GetTitle(ulong id, char* buffer, ulong bufferSize);
 #elif (LINUX)
@@ -71,9 +64,7 @@ public static class LoggerManager
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
             CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "LoggerManager_WriteLine", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
-    [UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
     public static unsafe extern void WriteLine(ulong id, OutputStreamType type, [MarshalAs(UnmanagedType.LPWStr)] string str);
 #elif (LINUX)
 

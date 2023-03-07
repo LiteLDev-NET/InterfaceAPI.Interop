@@ -31,7 +31,6 @@ namespace LiteLoader.InterfaceAPI.Interop
         [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "LLAPI_registerPlugin", SetLastError = true)]
-        [MethodImpl(MethodImplOptions.Unmanaged)]
         [SuppressUnmanagedCodeSecurity]
         public static extern bool RegisterPlugin(
             nint handle,

@@ -14,14 +14,14 @@ public static class Version
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "ctor_Version", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
+    
     [SuppressUnmanagedCodeSecurity]
     public static extern unsafe void ctor(void* versionPtr, int major, int minor, int revvision, int status);
 
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "Version_operator_lessThan", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
+    
     [SuppressUnmanagedCodeSecurity]
     [return: MarshalAs(UnmanagedType.U1)]
     public static extern unsafe bool operator_lessThan(void* l, void* r);
@@ -29,7 +29,7 @@ public static class Version
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "Version_operator_geraterThan", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
+    
     [SuppressUnmanagedCodeSecurity]
     [return: MarshalAs(UnmanagedType.U1)]
     public static extern unsafe bool operator_geraterThan(void* l, void* r);
@@ -37,7 +37,7 @@ public static class Version
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "Version_operator_lessThanOrEqual", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
+    
     [SuppressUnmanagedCodeSecurity]
     [return: MarshalAs(UnmanagedType.U1)]
     public static extern unsafe bool operator_lessThanOrEqual(void* l, void* r);
@@ -45,7 +45,7 @@ public static class Version
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "Version_operator_geraterThanOrEqual", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
+    
     [SuppressUnmanagedCodeSecurity]
     [return: MarshalAs(UnmanagedType.U1)]
     public static extern unsafe bool operator_geraterThanOrEqual(void* l, void* r);
@@ -53,7 +53,7 @@ public static class Version
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "Version_operator_equality", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
+    
     [SuppressUnmanagedCodeSecurity]
     [return: MarshalAs(UnmanagedType.U1)]
     public static extern unsafe bool operator_equality(void* l, void* r);
@@ -61,14 +61,14 @@ public static class Version
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "Version_toString", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
+    
     [SuppressUnmanagedCodeSecurity]
     public static extern unsafe char* ToString(void* _this, [MarshalAs(UnmanagedType.U1)] bool needStatus);
 
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "Version_parse", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
+    
     [SuppressUnmanagedCodeSecurity]
     public static extern unsafe void Parse(void* pVersion, [MarshalAs(UnmanagedType.LPWStr)] string str);
 }

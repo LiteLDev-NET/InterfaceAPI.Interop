@@ -16,7 +16,6 @@ public static class RemoteCall
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "RemoteCall_hasFunc", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     [return: MarshalAs(UnmanagedType.U1)]
     public static unsafe extern bool HasFunc(char* nameSpace, char* funcName);
@@ -28,7 +27,6 @@ public static class RemoteCall
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "RemoteCall_removeFunc", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     [return: MarshalAs(UnmanagedType.U1)]
     public static unsafe extern bool RemoveFunc(char* nameSpace, char* funcName);
@@ -40,7 +38,6 @@ public static class RemoteCall
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "RemoteCall_removeNameSpace", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     public static unsafe extern int RemoveNameSpace(char* nameSpace);
 #elif (LINUX)
@@ -51,7 +48,6 @@ public static class RemoteCall
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "RemoteCall_removeFuncs", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     public static unsafe extern int RemoveFuncs(void* vector);
 #elif (LINUX)
@@ -62,7 +58,6 @@ public static class RemoteCall
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "RemoteCall_exportFunc", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     [return: MarshalAs(UnmanagedType.U1)]
     public static unsafe extern bool ExportFunc(char* nameSpace, char* fullName, void* callback, nint handle);
@@ -74,7 +69,6 @@ public static class RemoteCall
     [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
         CallingConvention = CallingConvention.Cdecl,
         EntryPoint = "RemoteCall_importFunc", SetLastError = true)]
-    [MethodImpl(MethodImplOptions.Unmanaged)]
     [SuppressUnmanagedCodeSecurity]
     public static unsafe extern void* ImportFunc(char* nameSpace, char* fullName);
 #elif (LINUX)
