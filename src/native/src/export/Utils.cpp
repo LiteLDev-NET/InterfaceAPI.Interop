@@ -1,5 +1,6 @@
 #include "../global.h"
 #include <string>
+#include <llapi/utils/StringHelper.h>
 
 extern "C"
 {
