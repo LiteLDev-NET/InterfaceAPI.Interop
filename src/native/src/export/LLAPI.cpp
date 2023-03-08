@@ -4,30 +4,23 @@
 
 extern "C"
 {
-    struct RegisterPluginArgs
+    struct string_pair
     {
-        struct pair
-        {
-            wchar_t* key;
-            wchar_t* value;
-        };
-        pair* array;
-        size_t length;
+        std::string* key;
+        std::string* value;
     };
-
     LLNET_EXPORT bool LLAPI_registerPlugin(
         HMODULE handle,
         wchar_t* name,
         wchar_t* desc,
         void* pVersion,
-        RegisterPluginArgs& args)
+        std::vector<string_pair>* args)
     {
         std::map<std::string, std::string> map;
-        RegisterPluginArgs::pair* ptr = args.array;
 
-        for (size_t i = 0; i < args.length; ++i, ++ptr)
+        for (auto& [k, v] : *args)
         {
-            map.emplace(std::make_pair(wstr2str(ptr->key), wstr2str(ptr->value)));
+            map.emplace(std::make_pair(*k, *v));
         }
 
         return ::RegisterPlugin(handle, wstr2str(name), wstr2str(desc),

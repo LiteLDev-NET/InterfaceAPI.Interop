@@ -10,22 +10,6 @@ using System.Threading.Tasks;
 #pragma warning disable CS8500
 namespace LiteLoader.InterfaceAPI.Interop
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public unsafe struct RegisterPluginArgs
-    {
-        [StructLayout(LayoutKind.Sequential)]
-        public struct Pair
-        {
-            [MarshalAs(UnmanagedType.LPWStr)]
-            public string key;
-
-            [MarshalAs(UnmanagedType.LPWStr)]
-            public string value;
-        };
-        public Pair* array;
-        public ulong length;
-    };
-
     public unsafe static class LLAPI
     {
         [DllImport("LiteLoader.InterfaceAPI.Interop.Native.dll",
@@ -37,7 +21,7 @@ namespace LiteLoader.InterfaceAPI.Interop
             [MarshalAs(UnmanagedType.LPWStr)] string name,
             [MarshalAs(UnmanagedType.LPWStr)] string desc,
             void* pVersion,
-            ref RegisterPluginArgs args);
+            void* stdVectorPtr);
     }
 }
 #pragma warning restore CS8500
