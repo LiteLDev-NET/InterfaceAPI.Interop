@@ -9,6 +9,7 @@ extern "C"
         std::string* key;
         std::string* value;
     };
+
     LLNET_EXPORT bool LLAPI_registerPlugin(
         HMODULE handle,
         wchar_t* name,
