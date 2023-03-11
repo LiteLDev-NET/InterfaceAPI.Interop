@@ -52,7 +52,7 @@ rd /s /q Modules\InterfaceAPI.Interop
 
 @REM copy InterfaceAPI.Interop to Modules
 xcopy /e /y /i /q src\native\out\build\Release\LiteLoader.InterfaceAPI.Interop.Native.dll Modules\InterfaceAPI.Interop\
-xcopy /e /y /i /q src\managed\LiteLoader.InterfaceAPI.Interop\bin\Release\net7.0\LiteLoader.InterfaceAPI.Interop.dll Modules\InterfaceAPI.Interop\
+xcopy /e /y /i /q src\managed\LiteLoader.InterfaceAPI.Interop\bin\Release\net7.0\publish\LiteLoader.InterfaceAPI.Interop.dll Modules\InterfaceAPI.Interop\
 
 cd Modules
 for /f "delims=" %%i in ('git status . -s') do set LLNET_MODULE_NOW_STATUS=%%i
